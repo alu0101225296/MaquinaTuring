@@ -1,6 +1,7 @@
 #include "cinta.h"
 
 Cinta::Cinta() {
+  pos = 0;
 }
 
 Cinta::Cinta(std::string s) {
@@ -9,12 +10,14 @@ Cinta::Cinta(std::string s) {
 Cinta::~Cinta() {
 }
 
-void Cinta::insertInicio(std::string) {
-
+void Cinta::insertInicio(std::string word) {
+  for(char c : word)
+    cinta.push_back(std::string(1, c));
 }
 
 void Cinta::reset() {
   cinta.resize(0);
+  pos = 0;
 }
 
 void Cinta::print() {
@@ -32,7 +35,7 @@ void Cinta::write(std::string write_) {
 
 void Cinta::move(std::string movement) {
   if(movement == "R") right();
-    else left();
+  else left();
 }
 
 void Cinta::right() {
@@ -43,5 +46,8 @@ void Cinta::right() {
 
 void Cinta::left() { 
   if(pos > 0) pos--;
-    else pos = 0;
+  else {
+    pos = 0;
+    cinta.insert(cinta.begin(), "."); // AQUI  DOY POR HECHO QUE BLANCO ES . CAMBIAR SI HAY QUE PERSONALIZARLO
+  }
 }

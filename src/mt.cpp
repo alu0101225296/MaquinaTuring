@@ -100,12 +100,19 @@ Transition* MT::getMove(State* now, std::string input) {
   for(auto t : transitions)
     if(t -> canTransitate(now, input))
       return t;
-  std::cout << "no se encontró transicion O.o\n";
   return NULL;
 }
 
 void MT::run(std::string cadena) {
- 
+  cinta.insertInicio(cadena);
+
+  while(getMove(currentState, cinta.current()) != NULL) {
+    transit(getMove(currentState, cinta.current()));      
+    cinta.print();
+  } 
+  if(currentState -> isFinal()) 
+    std::cout << "Cadena aceptada\n";
+  else std::cout << "Cadena no aceptada\n";
 } 
 
 void MT::transit(Transition* transition) {
