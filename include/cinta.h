@@ -8,6 +8,7 @@ class Cinta {
   Alphabet T; // alfabeto de la cinta
   std::vector<std::string> cinta;
   int pos; // posicion cabecera
+  std::string blanco;
  public:
   Cinta();
   Cinta(std::string);
@@ -19,6 +20,7 @@ class Cinta {
   void move(std::string);
   void right();
   void left();
+  void setBlanco(std::string);
   std::string current();
   friend class MT;
 };

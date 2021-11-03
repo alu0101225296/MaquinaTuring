@@ -2,6 +2,7 @@
 
 Cinta::Cinta() {
   pos = 0;
+  blanco.clear();
 }
 
 Cinta::Cinta(std::string s) {
@@ -41,13 +42,17 @@ void Cinta::move(std::string movement) {
 void Cinta::right() {
   pos++;
   if(pos > cinta.size() - 1) 
-    cinta.push_back(".");  // AQUI  DOY POR HECHO QUE BLANCO ES . CAMBIAR SI HAY QUE PERSONALIZARLO
+    cinta.push_back(blanco); 
 }
 
 void Cinta::left() { 
   if(pos > 0) pos--;
   else {
     pos = 0;
-    cinta.insert(cinta.begin(), "."); // AQUI  DOY POR HECHO QUE BLANCO ES . CAMBIAR SI HAY QUE PERSONALIZARLO
+    cinta.insert(cinta.begin(), blanco);
   }
+}
+
+void Cinta::setBlanco(std::string blanco_) {
+  blanco = blanco_;
 }

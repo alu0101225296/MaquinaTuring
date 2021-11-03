@@ -49,8 +49,9 @@ void MT::readData(std::string file) {
     initial_state = findState(line);
     currentState = initial_state;
       
-    std::getline(MTFile, line); // AQUI  DOY POR HECHO QUE BLANCO ES . CAMBIAR SI HAY QUE PERSONALIZARLO
-    
+    std::getline(MTFile, line);
+    cinta.setBlanco(line);
+
     std::getline(MTFile, line);
     for(auto token : splitLine(line))
       if(findState(token)) findState(token) -> setFinal();
@@ -139,7 +140,7 @@ void MT::showInfo() {
   cinta.T.print();
 
   std::cout << "Estado inicial: " << initial_state -> getId() << "\n";
-  std::cout << "Símbolo blanco: " << "." << "\n"; // AQUI  DOY POR HECHO QUE BLANCO ES . CAMBIAR SI HAY QUE PERSONALIZARLO
+  std::cout << "Símbolo blanco: " << cinta.blanco << "\n";
 
   std::cout << "Transiciones:\n";
   for(auto t : transitions)
