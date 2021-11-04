@@ -60,7 +60,6 @@ void MT::readData(std::string file) {
           exit(EXIT_FAILURE);
         }
 
-
     std::vector<std::string> tline;
     std::vector<std::string> stack_push;
     int id = 1;
@@ -108,9 +107,10 @@ void MT::run(std::string cadena) {
   cinta.insertInicio(cadena);
 
   while(getMove(currentState, cinta.current()) != NULL) {
-    transit(getMove(currentState, cinta.current()));      
-    cinta.print();
+    if(currentState -> isFinal()) break;
+    transit(getMove(currentState, cinta.current()));   
   } 
+  cinta.print();
   if(currentState -> isFinal()) 
     std::cout << "Cadena aceptada\n";
   else std::cout << "Cadena no aceptada\n";

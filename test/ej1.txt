@@ -1,0 +1,19 @@
+# a^n b^m | n > 0 , n > m
+q0 q1 q2 q3 q4 q5
+a b
+a b .
+q0
+.
+q4
+q0 a q1 . R
+q1 a q1 a R
+q1 b q2 b R
+q1 . q3 . L
+q2 b q2 b R
+q2 . q3 . L
+q3 . q4 . L
+q3 a q4 . L
+q3 b q5 . L
+q5 a q5 a L
+q5 b q5 b L
+q5 . q0 . R
